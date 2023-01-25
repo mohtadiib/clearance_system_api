@@ -126,14 +126,14 @@ function selectFile($table, $field, $fileId, $conn){
         $row["supplier_name"] = selectRecord("suppliers", "id", $row["supplier_id"], $conn)["name"];;
         $row["shipping_line_name"] = selectRecord("shipping_lines", "id", $row["shipping_line_id"], $conn)["name"];;
 
-        if ($row["current_step"] === $steps[0]){
-            for ($x = 0; $x < count($steps); $x++) {
-                $row["steps"][$x]["done"] = true;
-                if ($row["current_step"] == $steps[$x]) {
-                    break;
-                }
-            }
-        }
+//        if ($row["current_step"] === $steps[0]){
+//            for ($x = 0; $x < count($steps); $x++) {
+//                $row["steps"][$x]["done"] = true;
+//                if ($row["current_step"] == $steps[$x]) {
+//                    break;
+//                }
+//            }
+//        }
 
     }
 

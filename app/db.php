@@ -3,7 +3,7 @@ require 'header.php';
 
 $servername = "localhost";
 $username = "root";
-$password = "root";
+$password = "root1234";
 $dbname = "clearance";
 //$servername = "localhost";
 //$username = "ozsjmcmy_talabatk";
