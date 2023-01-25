@@ -1,0 +1,31 @@
+[21-Aug-2021 14:22:47 UTC] PHP Notice:  Undefined index: email in /home/nowrseen/public_html/Hotels/app/api/auth/index.php on line 15
+[21-Aug-2021 14:22:47 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/nowrseen/public_html/Hotels/app/mysql.php on line 15
+[21-Aug-2021 14:22:47 UTC] PHP Notice:  Undefined index: active in /home/nowrseen/public_html/Hotels/app/api/auth/index.php on line 22
+[21-Aug-2021 14:25:09 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/nowrseen/public_html/Hotels/app/mysql.php on line 15
+[21-Aug-2021 14:25:09 UTC] PHP Notice:  Undefined index: active in /home/nowrseen/public_html/Hotels/app/api/auth/index.php on line 22
+[21-Aug-2021 14:25:17 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/nowrseen/public_html/Hotels/app/mysql.php on line 15
+[21-Aug-2021 14:25:17 UTC] PHP Notice:  Undefined index: active in /home/nowrseen/public_html/Hotels/app/api/auth/index.php on line 22
+[21-Aug-2021 14:27:18 UTC] PHP Notice:  Undefined index: active in /home/nowrseen/public_html/Hotels/app/api/auth/index.php on line 22
+[21-Aug-2021 14:27:22 UTC] PHP Notice:  Undefined index: active in /home/nowrseen/public_html/Hotels/app/api/auth/index.php on line 22
+[21-Aug-2021 14:40:06 UTC] PHP Notice:  Undefined offset: 0 in /home/nowrseen/public_html/Hotels/app/api/auth/index.php on line 23
+[21-Aug-2021 14:41:29 UTC] PHP Notice:  Undefined offset: 0 in /home/nowrseen/public_html/Hotels/app/api/auth/index.php on line 23
+[21-Aug-2021 14:43:54 UTC] PHP Notice:  Undefined offset: 0 in /home/nowrseen/public_html/Hotels/app/api/auth/index.php on line 23
+[21-Aug-2021 14:45:04 UTC] PHP Notice:  Undefined offset: 0 in /home/nowrseen/public_html/Hotels/app/api/auth/index.php on line 22
+[21-Aug-2021 14:45:08 UTC] PHP Notice:  Undefined offset: 0 in /home/nowrseen/public_html/Hotels/app/api/auth/index.php on line 22
+[21-Aug-2021 14:51:18 UTC] PHP Notice:  Undefined offset: 0 in /home/nowrseen/public_html/Hotels/app/api/auth/index.php on line 22
+[21-Aug-2021 14:52:44 UTC] PHP Notice:  Undefined offset: 0 in /home/nowrseen/public_html/Hotels/app/api/auth/index.php on line 22
+[21-Aug-2021 14:52:45 UTC] PHP Notice:  Undefined offset: 0 in /home/nowrseen/public_html/Hotels/app/api/auth/index.php on line 22
+[21-Aug-2021 14:52:45 UTC] PHP Notice:  Undefined offset: 0 in /home/nowrseen/public_html/Hotels/app/api/auth/index.php on line 22
+[21-Aug-2021 14:52:46 UTC] PHP Notice:  Undefined offset: 0 in /home/nowrseen/public_html/Hotels/app/api/auth/index.php on line 22
+[21-Aug-2021 14:52:46 UTC] PHP Notice:  Undefined offset: 0 in /home/nowrseen/public_html/Hotels/app/api/auth/index.php on line 22
+[21-Aug-2021 14:52:55 UTC] PHP Notice:  Undefined offset: 0 in /home/nowrseen/public_html/Hotels/app/api/auth/index.php on line 22
+[21-Aug-2021 14:52:55 UTC] PHP Notice:  Undefined offset: 0 in /home/nowrseen/public_html/Hotels/app/api/auth/index.php on line 22
+[21-Aug-2021 14:54:06 UTC] PHP Notice:  Undefined offset: 0 in /home/nowrseen/public_html/Hotels/app/api/auth/index.php on line 22
+[21-Aug-2021 14:54:40 UTC] PHP Notice:  Undefined offset: 0 in /home/nowrseen/public_html/Hotels/app/api/auth/index.php on line 22
+[21-Aug-2021 14:56:31 UTC] PHP Notice:  Undefined offset: 0 in /home/nowrseen/public_html/Hotels/app/api/auth/index.php on line 22
+[27-Aug-2021 12:09:11 UTC] PHP Notice:  Undefined offset: 0 in /home/nowrseen/public_html/Hotels/app/api/auth/index.php on line 32
+[27-Aug-2021 12:09:31 UTC] PHP Notice:  Undefined offset: 0 in /home/nowrseen/public_html/Hotels/app/api/auth/index.php on line 32
+[16-Sep-2021 14:51:40 UTC] PHP Notice:  Undefined offset: 0 in /home/nowrseen/public_html/Hotels/app/api/auth/index.php on line 32
+[16-Sep-2021 14:51:47 UTC] PHP Notice:  Undefined offset: 0 in /home/nowrseen/public_html/Hotels/app/api/auth/index.php on line 32
+[16-Sep-2021 14:51:52 UTC] PHP Notice:  Undefined offset: 0 in /home/nowrseen/public_html/Hotels/app/api/auth/index.php on line 32
+[16-Sep-2021 14:53:07 UTC] PHP Notice:  Undefined offset: 0 in /home/nowrseen/public_html/Hotels/app/api/auth/index.php on line 32

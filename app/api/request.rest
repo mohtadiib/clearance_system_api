@@ -1,0 +1,12 @@
+POST   http://localhost/clearance/app/api/constoms/file/insert/
+Content-Type: application/json
+
+{
+    "table": "items",
+    "data": {
+        "name": "ggg",
+        "details":"[{\"container_size\":\"20\",\"container_no\":345},{\"container_no\":555,\"container_size\":\"40\"},{\"container_no\":666,\"container_size\":\"20\"}]",
+        "type": "1",
+        "is_active": "1"
+    }
+}

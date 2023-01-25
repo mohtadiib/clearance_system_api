@@ -1,0 +1,24 @@
+[09-Jul-2021 16:07:58 UTC] PHP Notice:  Undefined variable: result in /home/nowrseen/public_html/Hotels/app/api/select/index.php on line 22
+[09-Jul-2021 16:08:08 UTC] PHP Notice:  Undefined variable: result in /home/nowrseen/public_html/Hotels/app/api/select/index.php on line 22
+[09-Jul-2021 16:10:09 UTC] PHP Notice:  Undefined variable: result in /home/nowrseen/public_html/Hotels/app/api/select/index.php on line 22
+[29-Mar-2022 08:57:49 UTC] PHP Notice:  Undefined index: id in /home/nowrseen/public_html/SPC_P/app/api/select/index.php on line 9
+[29-Mar-2022 08:57:49 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/nowrseen/public_html/SPC_P/app/mysql.php on line 39
+[29-Mar-2022 08:58:08 UTC] PHP Notice:  Undefined index: id in /home/nowrseen/public_html/SPC_P/app/api/select/index.php on line 9
+[29-Mar-2022 08:58:08 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/nowrseen/public_html/SPC_P/app/mysql.php on line 39
+[29-Mar-2022 08:59:32 UTC] PHP Notice:  Undefined index: id in /home/nowrseen/public_html/SPC_P/app/api/select/index.php on line 9
+[29-Mar-2022 08:59:32 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/nowrseen/public_html/SPC_P/app/mysql.php on line 39
+[04-May-2022 11:27:53 America/Boise] PHP Warning:  Trying to access array offset on value of type null in /home2/ozsjmcmy/public_html/perfect_apis/app/api/select/index.php on line 9
+[04-May-2022 11:27:53 America/Boise] PHP Warning:  Trying to access array offset on value of type null in /home2/ozsjmcmy/public_html/perfect_apis/app/api/select/index.php on line 10
+[04-May-2022 11:27:53 America/Boise] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_assoc(): Argument #1 ($result) must be of type mysqli_result, bool given in /home2/ozsjmcmy/public_html/perfect_apis/app/mysql.php:39
+Stack trace:
+#0 /home2/ozsjmcmy/public_html/perfect_apis/app/mysql.php(39): mysqli_fetch_assoc(false)
+#1 /home2/ozsjmcmy/public_html/perfect_apis/app/api/select/index.php(12): fetch_by_id(NULL, NULL, Object(mysqli))
+#2 {main}
+  thrown in /home2/ozsjmcmy/public_html/perfect_apis/app/mysql.php on line 39
+[08-May-2022 05:36:41 America/Boise] PHP Warning:  Undefined array key "id" in /home2/ozsjmcmy/public_html/perfect_apis/app/api/select/index.php on line 9
+[08-May-2022 05:36:41 America/Boise] PHP Fatal error:  Uncaught TypeError: mysqli_fetch_assoc(): Argument #1 ($result) must be of type mysqli_result, bool given in /home2/ozsjmcmy/public_html/perfect_apis/app/mysql.php:39
+Stack trace:
+#0 /home2/ozsjmcmy/public_html/perfect_apis/app/mysql.php(39): mysqli_fetch_assoc(false)
+#1 /home2/ozsjmcmy/public_html/perfect_apis/app/api/select/index.php(12): fetch_by_id('wallet_t', NULL, Object(mysqli))
+#2 {main}
+  thrown in /home2/ozsjmcmy/public_html/perfect_apis/app/mysql.php on line 39

@@ -1,0 +1,14 @@
+[16-Apr-2021 09:31:26 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_fetch_all() in /home/nowrseen/public_html/pos/api/login/select_permissions/index.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/nowrseen/public_html/pos/api/login/select_permissions/index.php on line 10
+[16-Apr-2021 09:31:40 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_fetch_all() in /home/nowrseen/public_html/pos/api/login/select_permissions/index.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/nowrseen/public_html/pos/api/login/select_permissions/index.php on line 10
+[16-Apr-2021 09:31:58 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_fetch_all() in /home/nowrseen/public_html/pos/api/login/select_permissions/index.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/nowrseen/public_html/pos/api/login/select_permissions/index.php on line 10
+[16-Apr-2021 09:33:46 UTC] PHP Notice:  Undefined variable: result in /home/nowrseen/public_html/pos/api/login/select_permissions/index.php on line 10
+[16-Apr-2021 09:33:46 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, null given in /home/nowrseen/public_html/pos/api/login/select_permissions/index.php on line 10

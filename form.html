@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <title>Form JS</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div id="app">
+
+        <form id="myform" name="safe" method="POST">
+            <div class="form-group-inline">
+                <input type="text" class="form-control" name="type" />
+
+                <input type="number" class="form-control" name="amount" />
+
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+    </div>
+
+    <div class="results__display"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        const url = "http://localhost/coofair/";
+        const form = document.forms["safe"];
+        const display = document.getElementsByClassName("results__display")[0];
+
+        form.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const data = new FormData(form);
+            const value = Object.fromEntries(data.entries());
+            // console.log(value);
+            sendData({"table":form.name,"id":1,"data":value});
+        });
+
+
+        function sendData(data) {
+            axios
+                .post(url + "api/crud/update/", 
+                  data
+                )
+                .then(function (response) {
+                    console.log(response.data);
+                    // display.innerHTML =  toString(response.data);
+                    display.innerHTML =  JSON.stringify(response.data);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+    </script>
+</body>
+
+</html>

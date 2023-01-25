@@ -1,0 +1,49 @@
+[09-Jul-2021 14:02:15 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_fetch_all() in /home/nowrseen/public_html/Hotels/app/mysql.php:24
+Stack trace:
+#0 /home/nowrseen/public_html/Hotels/app/api/index.php(14): fetch_all('property', Object(mysqli))
+#1 {main}
+  thrown in /home/nowrseen/public_html/Hotels/app/mysql.php on line 24
+[09-Jul-2021 14:02:43 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_fetch_all() in /home/nowrseen/public_html/Hotels/app/mysql.php:24
+Stack trace:
+#0 /home/nowrseen/public_html/Hotels/app/api/index.php(14): fetch_all('property', Object(mysqli))
+#1 {main}
+  thrown in /home/nowrseen/public_html/Hotels/app/mysql.php on line 24
+[09-Jul-2021 14:04:02 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_fetch_all() in /home/nowrseen/public_html/Hotels/app/mysql.php:24
+Stack trace:
+#0 /home/nowrseen/public_html/Hotels/app/api/index.php(14): fetch_all('property', Object(mysqli))
+#1 {main}
+  thrown in /home/nowrseen/public_html/Hotels/app/mysql.php on line 24
+[09-Jul-2021 14:52:18 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/nowrseen/public_html/Hotels/app/mysql.php on line 28
+[09-Jul-2021 14:52:18 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/nowrseen/public_html/Hotels/app/mysql.php on line 28
+[11-Sep-2021 18:03:51 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/nowrseen/public_html/Hotels/app/mysql.php on line 28
+[11-Sep-2021 18:07:10 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/nowrseen/public_html/Hotels/app/mysql.php on line 28
+[11-Sep-2021 18:08:12 UTC] PHP Notice:  Undefined index: table in /home/nowrseen/public_html/Hotels/app/api/index.php on line 11
+[11-Sep-2021 18:08:12 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/nowrseen/public_html/Hotels/app/mysql.php on line 28
+[11-Sep-2021 18:08:34 UTC] PHP Notice:  Undefined index: table in /home/nowrseen/public_html/Hotels/app/api/index.php on line 11
+[11-Sep-2021 18:08:34 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/nowrseen/public_html/Hotels/app/mysql.php on line 28
+[29-Sep-2021 13:48:12 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/nowrseen/public_html/Hotels/app/mysql.php on line 28
+[29-Sep-2021 14:39:26 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/nowrseen/public_html/Hotels/app/mysql.php on line 28
+[22-Mar-2022 08:40:10 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/nowrseen/public_html/SPC_P/app/mysql.php on line 28
+[24-Mar-2022 10:33:39 UTC] PHP Notice:  Undefined index: table in /home/nowrseen/public_html/SPC_P/app/api/index.php on line 11
+[24-Mar-2022 10:33:39 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/nowrseen/public_html/SPC_P/app/mysql.php on line 28
+[24-Mar-2022 10:34:06 UTC] PHP Notice:  Undefined index: table in /home/nowrseen/public_html/SPC_P/app/api/index.php on line 11
+[24-Mar-2022 10:34:06 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/nowrseen/public_html/SPC_P/app/mysql.php on line 28
+[24-Mar-2022 10:34:51 UTC] PHP Notice:  Undefined index: table in /home/nowrseen/public_html/SPC_P/app/api/index.php on line 11
+[24-Mar-2022 10:34:51 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/nowrseen/public_html/SPC_P/app/mysql.php on line 28
+[24-Mar-2022 10:35:10 UTC] PHP Notice:  Undefined index: table in /home/nowrseen/public_html/SPC_P/app/api/index.php on line 11
+[24-Mar-2022 10:35:10 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/nowrseen/public_html/SPC_P/app/mysql.php on line 28
+[24-Mar-2022 10:36:35 UTC] PHP Notice:  Undefined index: table in /home/nowrseen/public_html/SPC_P/app/api/index.php on line 11
+[24-Mar-2022 10:36:35 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/nowrseen/public_html/SPC_P/app/mysql.php on line 28
+[28-Mar-2022 06:06:33 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/nowrseen/public_html/SPC_P/app/mysql.php on line 28
+[28-Mar-2022 06:09:59 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/nowrseen/public_html/SPC_P/app/mysql.php on line 28
+[28-Mar-2022 06:10:15 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/nowrseen/public_html/SPC_P/app/mysql.php on line 28
+[29-Mar-2022 08:23:27 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/nowrseen/public_html/SPC_P/app/mysql.php on line 28
+[29-Mar-2022 08:23:46 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/nowrseen/public_html/SPC_P/app/mysql.php on line 28
+[29-Mar-2022 08:23:48 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/nowrseen/public_html/SPC_P/app/mysql.php on line 28
+[29-Mar-2022 08:41:09 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/nowrseen/public_html/SPC_P/app/mysql.php on line 28
+[29-Mar-2022 08:42:09 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/nowrseen/public_html/SPC_P/app/mysql.php on line 28
+[29-Mar-2022 08:42:41 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/nowrseen/public_html/SPC_P/app/mysql.php on line 28
+[29-Mar-2022 08:43:52 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/nowrseen/public_html/SPC_P/app/mysql.php on line 28
+[29-Mar-2022 08:44:10 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/nowrseen/public_html/SPC_P/app/mysql.php on line 28
+[29-Mar-2022 08:45:02 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/nowrseen/public_html/SPC_P/app/mysql.php on line 28
+[29-Mar-2022 08:45:07 UTC] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, bool given in /home/nowrseen/public_html/SPC_P/app/mysql.php on line 28
