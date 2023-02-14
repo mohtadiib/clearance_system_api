@@ -18,10 +18,11 @@ if(isset($postdata) && !empty($postdata))
     $docs = json_decode("[".$step["necessary_docs"]."]");
 
     $currentDocs = selectArrayRecord("file_docs", "file_id", $file["file_id"], $conn);
+    $currentDocsIds = array();
+    $missedDocs = array();
     foreach ($currentDocs as $currentDoc){
         $currentDocsIds[] = (int) $currentDoc["doc_id"];
     }
-
     foreach ($docs as $doc) {
         if (!in_array($doc,$currentDocsIds)){
             $missedDocs[] = selectRecord("clearance_docs", "id", $doc, $conn);
