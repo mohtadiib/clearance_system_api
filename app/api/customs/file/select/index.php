@@ -9,7 +9,7 @@ if(isset($postdata) && !empty($postdata))
     $request = json_decode($postdata,true);
     $fileId = $request["file_id"];
 
-    $result["data"] = selectFile("files", "file_id", $fileId, $conn);
+    $result["data"] = selectFile($fileId, $conn);
     if($result["data"]){
         $result["containers"] = selectArrayRecord("file_containers","file_id", $fileId, $conn);
         if($result["containers"]){
@@ -29,36 +29,12 @@ echo json_encode($result);
 mysqli_close($conn);
 
 
-function selectArrayRecord($table, $field, $fileId, $conn): array
-{
-    $sql = "SELECT * FROM $table WHERE $field = $fileId";
-    return query_result($sql, $conn);
-}
 
-function selectRecord($table, $field, $fileId, $conn){
-    $sql = "SELECT * FROM $table WHERE $field = $fileId";
+function selectFile($fileId, $conn){
 
-    $result = mysqli_query($conn, $sql);
-
-    return mysqli_fetch_assoc($result);
-}
-
-function selectItems($fileId, $conn){
-    $newItems = array();
-    $items = selectArrayRecord("file_items","file_id", $fileId, $conn);
-    foreach ($items as $item){
-        $itemRow = selectRecord("clearance_items", "id", $item["item_id"], $conn);
-        $item["item_name"] = $itemRow["name"];
-        $newItems[] = $item;
-    }
-    return $newItems;
-}
-
-function selectFile($table, $field, $fileId, $conn){
-
-    $row = selectRecord($table, $field, $fileId, $conn);
+    $row = selectRecord("files", "file_id", $fileId, $conn);
     if ($row){
-        $row["service"] = selectRecord("services", "id", 2, $conn);
+        $row["service"] = selectRecord("services", "id", $row["service_id"], $conn);
         $steps = json_decode("[".$row["service"]["steps"]."]");
 
         foreach ($steps as $step){
@@ -126,14 +102,6 @@ function selectFile($table, $field, $fileId, $conn){
         $row["supplier_name"] = selectRecord("suppliers", "id", $row["supplier_id"], $conn)["name"];;
         $row["shipping_line_name"] = selectRecord("shipping_lines", "id", $row["shipping_line_id"], $conn)["name"];;
 
-//        if ($row["current_step"] === $steps[0]){
-//            for ($x = 0; $x < count($steps); $x++) {
-//                $row["steps"][$x]["done"] = true;
-//                if ($row["current_step"] == $steps[$x]) {
-//                    break;
-//                }
-//            }
-//        }
 
     }
 

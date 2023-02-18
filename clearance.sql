@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 14, 2023 at 01:50 PM
+-- Generation Time: Feb 18, 2023 at 03:34 PM
 -- Server version: 8.0.17
 -- PHP Version: 7.3.10
 
@@ -151,9 +151,9 @@ CREATE TABLE `files` (
 --
 
 INSERT INTO `files` (`id`, `file_id`, `supplier_id`, `shipping_line_id`, `shipping_type`, `quantity`, `service_id`, `current_step`, `port_id`, `policy_number`, `package_type`, `data_documents_arrived`, `status`, `create_at`, `is_active`) VALUES
-(1, '20230118020109254', 2, 3, 2, 3, 3, 0, 2, '234234', NULL, '2023-01-22 13:17:39', 1, '2023-01-18 16:34:09', 1),
-(2, '20230118020110645', 2, 3, 2, 3, 3, 0, 2, '234234', NULL, '2023-01-22 13:17:39', 1, '2023-01-18 16:34:10', 1),
-(3, '20230118020110333', 2, 3, 2, 3, 3, 2, 2, '234234', NULL, '2023-01-22 13:17:39', 1, '2023-01-18 16:34:10', 1);
+(1, '20230118020109254', 2, 3, 2, 3, 2, 0, 2, '234234', NULL, '2023-01-22 13:17:39', 1, '2023-01-18 16:34:09', 1),
+(2, '20230118020110645', 2, 3, 2, 3, 1, 3, 2, '234234', NULL, '2023-01-22 13:17:39', 1, '2023-01-18 16:34:10', 1),
+(3, '20230118020110333', 2, 3, 2, 3, 2, 2, 2, '234234', NULL, '2023-01-22 13:17:39', 1, '2023-01-18 16:34:10', 1);
 
 -- --------------------------------------------------------
 
@@ -205,7 +205,13 @@ INSERT INTO `file_docs` (`id`, `img_path`, `doc_id`, `file_id`) VALUES
 (44, '167473284325809250.png', 1, '20230118020110333'),
 (45, '167473285087701630.png', 3, '20230118020110333'),
 (46, '167473287831474180.png', 4, '20230118020110333'),
-(47, '167479875774994080.png', 6, '20230118020110645');
+(47, '167479875774994080.png', 6, '20230118020110645'),
+(48, '167645675112884130.png', 5, '20230118020110645'),
+(49, '167645675657978700.png', 1, '20230118020110645'),
+(50, '167645676047874780.png', 3, '20230118020110645'),
+(51, '167645676283372400.png', 2, '20230118020110645'),
+(52, '167645676734267940.png', 4, '20230118020110645'),
+(53, '167651544272391970.png', 5, '20230118020109254');
 
 -- --------------------------------------------------------
 
@@ -236,6 +242,20 @@ INSERT INTO `file_items` (`id`, `item_id`, `item_details`, `origin_country`, `sh
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `messages`
+--
+
+CREATE TABLE `messages` (
+  `id` int(11) NOT NULL,
+  `title` varchar(100) DEFAULT NULL,
+  `details` varchar(500) DEFAULT NULL,
+  `more` varchar(500) DEFAULT NULL,
+  `done` int(11) DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `operations`
 --
 
@@ -252,14 +272,43 @@ CREATE TABLE `operations` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `operations_files`
+-- Table structure for table `operation_files`
 --
 
-CREATE TABLE `operations_files` (
+CREATE TABLE `operation_files` (
   `id` int(11) NOT NULL,
   `fiel_id` int(11) DEFAULT NULL,
   `operaton_id` int(11) DEFAULT NULL,
   `total` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `operation_file_steps`
+--
+
+CREATE TABLE `operation_file_steps` (
+  `id` int(11) NOT NULL,
+  `step_id` int(11) NOT NULL,
+  `cost` int(11) NOT NULL,
+  `operation_file_id` int(11) NOT NULL,
+  `is_deleted` int(11) NOT NULL,
+  `create_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `operation_file_step_items`
+--
+
+CREATE TABLE `operation_file_step_items` (
+  `id` int(11) NOT NULL,
+  `operation_file_step_id` int(11) NOT NULL,
+  `clearance_item_id` int(11) NOT NULL,
+  `const` int(11) NOT NULL,
+  `create_at` datetime DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -344,10 +393,19 @@ CREATE TABLE `users` (
   `phone` int(20) DEFAULT NULL,
   `username` varchar(100) DEFAULT NULL,
   `password` varchar(100) DEFAULT NULL,
-  `type` int(11) DEFAULT NULL,
-  `create_at` datetime DEFAULT NULL,
-  `status` int(11) DEFAULT NULL
+  `type` int(11) DEFAULT '0',
+  `create_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `status` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `phone`, `username`, `password`, `type`, `create_at`, `status`) VALUES
+(2, 'mmmm', 345, '345', '345', 0, '0000-00-00 00:00:00', 0),
+(3, 'hhhh', 456456, '456456', '456456', 1, '0000-00-00 00:00:00', 1),
+(4, 'sadf', 0, 'asdf', 'asdf', 1, '0000-00-00 00:00:00', 1);
 
 --
 -- Indexes for dumped tables
@@ -402,15 +460,33 @@ ALTER TABLE `file_items`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `messages`
+--
+ALTER TABLE `messages`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `operations`
 --
 ALTER TABLE `operations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `operations_files`
+-- Indexes for table `operation_files`
 --
-ALTER TABLE `operations_files`
+ALTER TABLE `operation_files`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `operation_file_steps`
+--
+ALTER TABLE `operation_file_steps`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `operation_file_step_items`
+--
+ALTER TABLE `operation_file_step_items`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -481,7 +557,7 @@ ALTER TABLE `file_containers`
 -- AUTO_INCREMENT for table `file_docs`
 --
 ALTER TABLE `file_docs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `file_items`
@@ -490,15 +566,33 @@ ALTER TABLE `file_items`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `messages`
+--
+ALTER TABLE `messages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `operations`
 --
 ALTER TABLE `operations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `operations_files`
+-- AUTO_INCREMENT for table `operation_files`
 --
-ALTER TABLE `operations_files`
+ALTER TABLE `operation_files`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `operation_file_steps`
+--
+ALTER TABLE `operation_file_steps`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `operation_file_step_items`
+--
+ALTER TABLE `operation_file_step_items`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -523,7 +617,7 @@ ALTER TABLE `suppliers`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

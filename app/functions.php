@@ -63,4 +63,61 @@ function is_assoc($data){
     return $data;
 }
 
+ function updateCurrentStep($fileId,$data,$conn){
+    $file = selectRecord("files", "id", $fileId, $conn);
+    $step = selectRecord("clearance_steps", "id", $data["current_step"], $conn);
+    $docs = json_decode("[".$step["necessary_docs"]."]");
+
+    $currentDocs = selectArrayRecord("file_docs", "file_id", $file["file_id"], $conn);
+    $currentDocsIds = array();
+    $missedDocs = array();
+    foreach ($currentDocs as $currentDoc){
+        $currentDocsIds[] = (int) $currentDoc["doc_id"];
+    }
+    foreach ($docs as $doc) {
+        if (!in_array($doc,$currentDocsIds)){
+            $missedDocs[] = selectRecord("clearance_docs", "id", $doc, $conn);
+        }
+    }
+    if (count($missedDocs) == 0){
+        $result = update("files", $fileId, $data, $conn);
+        $res['msg'] = 'Error , IN your syntac , check ur params';
+        $res["done"] = true;
+        if($result){
+            $res['msg'] = $missedDocs;
+        }
+    }else{
+        $res["done"] = false;
+        $res["missed"] = $missedDocs;
+    }
+
+    return $res;
+}
+
+
+function selectRecord($table, $field, $value, $conn){
+    $sql = "SELECT * FROM $table WHERE $field = $value";
+
+    $result = mysqli_query($conn, $sql);
+
+    return mysqli_fetch_assoc($result);
+}
+
+
+function selectArrayRecord($table, $field, $value, $conn): array
+{
+    $sql = "SELECT * FROM $table WHERE $field = $value";
+    return query_result($sql, $conn);
+}
+
+function selectItems($fileId, $conn){
+    $newItems = array();
+    $items = selectArrayRecord("file_items","file_id", $fileId, $conn);
+    foreach ($items as $item){
+        $itemRow = selectRecord("clearance_items", "id", $item["item_id"], $conn);
+        $item["item_name"] = $itemRow["name"];
+        $newItems[] = $item;
+    }
+    return $newItems;
+}
 ?>
