@@ -16,7 +16,7 @@ $trans_id = $output['trans'];
 
 $msg = ['fields' => $output, 'err' => 'check your fields ..'];
 
-if (isset($type) && $type == 'add') {
+if (isset($type) && $type == 'insert') {
     $msg = deposit($conn, $user, $cash, $source, $reason);
 } else if (isset($type) && $type == 'take') {
     $msg = withdraw($conn, $user, $cash, $source, $reason);

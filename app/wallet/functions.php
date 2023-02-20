@@ -38,7 +38,7 @@ function deposit($conn, $user, $cash, $source = null, $reason = null)
         $wallet_id = $wallet['id'];
         $balance = $wallet['amount'];
         $trans = transaction($conn, $wallet_id, $cash, $source, $reason, 1);
-        // add transaction
+        // insert transaction
         if ($trans) {
             $msg = ['msg' => false, 'err' => 'wallet update error ..'];
             // fill/update wallet .. with cash
@@ -49,7 +49,7 @@ function deposit($conn, $user, $cash, $source = null, $reason = null)
             }
         }
     }
-    // add cash to
+    // insert cash to
     return $msg;
 }
 
@@ -66,7 +66,7 @@ function withdraw($conn, $user, $cash, $source = null, $reason = null)
         $msg = ['msg' => false, 'err' => "your balance is $balance .. "];
         if ($balance >= $cash) {
             $amount = $balance - $cash;
-            // add transaction
+            // insert transaction
             $trans = transaction($conn, $wallet_id, $cash, $source, $reason, 2);
             if ($trans) {
                 // fill/update wallet .. with cash
@@ -86,7 +86,7 @@ function transaction($conn, $wallet, $amount, $source = null, $reason = null, $t
 {
 
     $msg = false;
-    // add transaction to table wallet_t
+    // insert transaction to table wallet_t
     $query = "INSERT INTO wallet_t (wallet, amount, source, reason, type) VALUES ($wallet, $amount, '$source', '$reason', $type)";
     $result = query($conn, $query);
     if ($result) {
