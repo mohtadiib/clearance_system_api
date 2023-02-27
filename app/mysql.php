@@ -26,6 +26,7 @@ function fetch_all($table, $conn){
     $result = mysqli_query($conn, $sql);
      $arr = array();
     while( $row = mysqli_fetch_assoc($result)){
+        $row["key"] = $row["id"];
         $arr[] = $row;
     }
     return $arr;
@@ -178,6 +179,30 @@ function updateAll($table, $data , $conn){
     // print($query);
     if(mysqli_multi_query($conn,$query)) return true;
     return false;
+}
+
+
+function checkToken(){
+
+}
+
+
+function innerSelect($firstTable,$secondTable,$field, $conn){
+    $newItems = array();
+    $items = fetch_all($firstTable, $conn);
+    foreach ($items as $item){
+        $itemRow = selectRecord($secondTable, $item[$field],2, $conn);
+        $item["item_name"] = $itemRow["name"];
+        $item["key"] = $itemRow["id"];
+        $newItems[] = $item;
+    }
+    return $newItems;
+}
+
+function selectRecord($table, $field, $value, $conn){
+    $sql = "SELECT * FROM $table WHERE $field = $value";
+    $result = mysqli_query($conn, $sql);
+    return mysqli_fetch_assoc($result);
 }
 
 // updateAll("users", [["id"=> 1,"user"=>"35", "username"=>"37", "age"=>"43"],["id"=>2,"user"=>"55", "username"=>"77", "age"=>"44"]],null);

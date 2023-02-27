@@ -116,6 +116,7 @@ function selectItems($fileId, $conn){
     foreach ($items as $item){
         $itemRow = selectRecord("clearance_items", "id", $item["item_id"], $conn);
         $item["item_name"] = $itemRow["name"];
+        $item["key"] = $itemRow["id"];
         $newItems[] = $item;
     }
     return $newItems;

@@ -29,7 +29,7 @@ if(isset($postdata) && !empty($postdata))
         if($result){
             foreach ($containers as $container){
                 $container["file_id"] = $fileId;
-                $container["id"] = 0;
+//                $container["id"] = 0;
                 $result = insert("file_containers", $container, $conn);
             }
 
