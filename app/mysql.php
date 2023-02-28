@@ -187,16 +187,47 @@ function checkToken(){
 }
 
 
-function innerSelect($firstTable,$secondTable,$field, $conn){
+function innerSelect($firstTable,$fieldF,$idF,$secondTable,$fieldS, $conn){
     $newItems = array();
     $items = fetch_all($firstTable, $conn);
+    if ($fieldF){
+    $items = selectArrayRecord($firstTable,$fieldF, $idF, $conn);
+    }
     foreach ($items as $item){
-        $itemRow = selectRecord($secondTable, $item[$field],2, $conn);
-        $item["item_name"] = $itemRow["name"];
+        $itemRow = selectRecord($secondTable, "id",$item[$fieldS], $conn);
+        $item[$fieldS] = $itemRow["name"];
         $item["key"] = $itemRow["id"];
         $newItems[] = $item;
     }
     return $newItems;
+}
+function innerSelectDeep($table_1,$field_1,$id_1,
+                         $table_2,$field_2,$table_3,$field_3, $conn){
+    $items = fetch_all($table_1, $conn);
+    if ($field_1){
+    $items = selectArrayRecord($table_1,$field_1, $id_1, $conn);
+    }
+    if ($table_2){
+        $itemTemp =  $items;
+        $items = [];
+        foreach ($itemTemp as $item){
+            $itemRow = selectRecord($table_2, "id",$item[$field_2], $conn);
+            $item[$field_2] = $itemRow["name"];
+            $item["key"] = $item["id"];
+            $items[] = $item;
+        }
+//        $items[] = $item;
+    }
+    if ($field_3){
+        $itemTemp =  $items;
+        $items = [];
+        foreach ($itemTemp as $newItem){
+            $itemRow = selectRecord($table_3, "id",$newItem[$field_3], $conn);
+            $newItem[$field_3] = $itemRow["name"];
+            $items[] = $newItem;
+        }
+    }
+    return $items;
 }
 
 function selectRecord($table, $field, $value, $conn){
@@ -204,6 +235,13 @@ function selectRecord($table, $field, $value, $conn){
     $result = mysqli_query($conn, $sql);
     return mysqli_fetch_assoc($result);
 }
+
+function selectArrayRecord($table, $field, $value, $conn): array
+{
+    $sql = "SELECT * FROM $table WHERE $field = $value ORDER BY id DESC";
+    return query_result($sql, $conn);
+}
+
 
 // updateAll("users", [["id"=> 1,"user"=>"35", "username"=>"37", "age"=>"43"],["id"=>2,"user"=>"55", "username"=>"77", "age"=>"44"]],null);
 // echo "\n";

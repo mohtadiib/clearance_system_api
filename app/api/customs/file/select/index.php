@@ -13,7 +13,15 @@ if(isset($postdata) && !empty($postdata))
     if($result["data"]){
         $result["containers"] = selectArrayRecord("file_containers","file_id", $fileId, $conn);
         if($result["containers"]){
-            $result["items"] = selectItems($fileId, $conn);
+//            $result["items"] = selectItems($fileId, $conn);
+            $result["items"] = innerSelect(
+                                    "file_items",
+                                    "file_id",
+                                    "$fileId",
+                                    "clearance_items",
+                                    "item_id",
+                                    $conn
+                                );
         }
     }
 
@@ -101,8 +109,6 @@ function selectFile($fileId, $conn){
 
         $row["supplier_name"] = selectRecord("suppliers", "id", $row["supplier_id"], $conn)["name"];;
         $row["shipping_line_name"] = selectRecord("shipping_lines", "id", $row["shipping_line_id"], $conn)["name"];;
-
-
     }
 
     return $row;

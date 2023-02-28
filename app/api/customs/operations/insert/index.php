@@ -21,13 +21,10 @@ if(isset($postdata) && !empty($postdata))
     if($result){
         $result = insertAll("operation_files", $files, $conn);
     }
-
     $res['msg'] = 'Error , IN your syntac , check ur params';
-
     if($result){
         $res['msg'] = $result;
     }
-
 }else{
     $res['msg'] = 'Error , Didn\'t receive data ..';
 }

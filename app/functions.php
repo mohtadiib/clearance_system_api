@@ -94,31 +94,27 @@ function is_assoc($data){
     return $res;
 }
 
-
-function selectRecord($table, $field, $value, $conn){
-    $sql = "SELECT * FROM $table WHERE $field = $value";
-
-    $result = mysqli_query($conn, $sql);
-
-    return mysqli_fetch_assoc($result);
-}
-
-
-function selectArrayRecord($table, $field, $value, $conn): array
-{
-    $sql = "SELECT * FROM $table WHERE $field = $value";
-    return query_result($sql, $conn);
-}
-
-function selectItems($fileId, $conn){
-    $newItems = array();
-    $items = selectArrayRecord("file_items","file_id", $fileId, $conn);
-    foreach ($items as $item){
-        $itemRow = selectRecord("clearance_items", "id", $item["item_id"], $conn);
-        $item["item_name"] = $itemRow["name"];
-        $item["key"] = $itemRow["id"];
-        $newItems[] = $item;
-    }
-    return $newItems;
-}
+//function selectArrayRecord($table, $field, $value, $conn): array
+//{
+//    $sql = "SELECT * FROM $table WHERE $field = $value";
+//    return query_result($sql, $conn);
+//}
+//
+//function selectRecord($table, $field, $value, $conn){
+//    $sql = "SELECT * FROM $table WHERE $field = $value";
+//    $result = mysqli_query($conn, $sql);
+//    return mysqli_fetch_assoc($result);
+//}
+//
+//function selectItems($fileId, $conn){
+//    $newItems = array();
+//    $items = selectArrayRecord("file_items","file_id", $fileId, $conn);
+//    foreach ($items as $item){
+//        $itemRow = selectRecord("clearance_items", "id", $item["item_id"], $conn);
+//        $item["item_name"] = $itemRow["name"];
+//        $item["key"] = $itemRow["id"];
+//        $newItems[] = $item;
+//    }
+//    return $newItems;
+//}
 ?>

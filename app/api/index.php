@@ -12,10 +12,32 @@ if(isset($postdata) && !empty($postdata))
 
  $row = fetch_all($table,$conn);
 
- if (isset($request["table2"]) && isset($request["filed"])){
-   $table2 = $request["table2"];
-   $row = innerSelect($table,$request["table2"],$request["filed"],$conn);
+ if (isset($request["field1"]) ){
+     $field_1 = $request["field1"];
+     $id_1 = $request["id"];
+     $row = innerSelectDeep("$table","$field_1","$id_1",
+         "","","","", $conn);
  }
+ if (isset($request["table2"]) ){
+     $field_1 = $request["field1"];
+     $id_1 = $request["id"];
+     $table2 = $request["table2"];
+     $field2 = $request["field2"];
+     $row = innerSelectDeep("$table","$field_1","$id_1",
+         "$table2","$field2","","", $conn);
+//     $row = [];
+ }
+ if (isset($request["table3"]) ){
+     $field_1 = $request["field1"];
+     $id_1 = $request["id"];
+     $table2 = $request["table2"];
+     $field2 = $request["field2"];
+     $table3 = $request["table3"];
+     $field3 = $request["field3"];
+     $row = innerSelectDeep("$table","$field_1","$id_1",
+         "$table2","$field2","$table3","$field3", $conn);
+ }
+
 
 }
 
