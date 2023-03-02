@@ -12,17 +12,14 @@ if(isset($postdata) && !empty($postdata))
     $result["data"] = selectFile($fileId, $conn);
     if($result["data"]){
         $result["containers"] = selectArrayRecord("file_containers","file_id", $fileId, $conn);
-        if($result["containers"]){
-//            $result["items"] = selectItems($fileId, $conn);
-            $result["items"] = innerSelect(
-                                    "file_items",
-                                    "file_id",
-                                    "$fileId",
-                                    "clearance_items",
-                                    "item_id",
-                                    $conn
-                                );
-        }
+        $result["items"] = innerSelect(
+            "file_items",
+            "file_id",
+            "$fileId",
+            "clearance_items",
+            "item_id",
+            $conn
+        );
     }
 
     $res['msg'] = 'Error , IN your syntac , check ur params';
