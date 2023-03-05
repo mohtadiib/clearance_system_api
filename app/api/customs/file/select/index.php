@@ -42,6 +42,7 @@ function selectFile($fileId, $conn){
         $row["service"] = selectRecord("services", "id", $row["service_id"], $conn);
         $steps = json_decode("[".$row["service"]["steps"]."]");
 
+        $stepsChanges = array();
         foreach ($steps as $step){
             $stepRow = selectRecord("clearance_steps", "id", $step, $conn);
             $stepRow["done"] = false;
@@ -50,7 +51,6 @@ function selectFile($fileId, $conn){
             $docs[] = json_decode("[".$stepRow["necessary_docs"]."]");
             $necessary_docs = array();
             $documents = array();
-            $currentDocs = array();
             $currentDocIds = array();
 
             foreach ($docs as $doc){
@@ -70,7 +70,6 @@ function selectFile($fileId, $conn){
                     $currentDocTemp["doc_id"] = $currentDoc["doc_id"];
                     $currentDocTemp["img"] = $currentDoc["img_path"];
                     $currentDocIds["img_paths"][] = $currentDocTemp;
-
                 }
             }
 
@@ -102,6 +101,19 @@ function selectFile($fileId, $conn){
             }
             $row["docs"] = $documents;
             $row["steps"][] = $stepRow;
+
+
+        }
+
+        if ($row["current_step"] != $steps[0]){
+            for ($x = 0; $x < count($steps); $x++) {
+                $row["steps"][$x]["done"] = true;
+                if ($row["current_step"] == $steps[$x]) {
+                    break;
+                }
+            }
+        }else{
+            $row["steps"][0]["done"] = true;
         }
 
         $row["supplier_name"] = selectRecord("suppliers", "id", $row["supplier_id"], $conn)["name"];;

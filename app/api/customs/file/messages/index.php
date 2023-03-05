@@ -22,19 +22,35 @@ mysqli_close($conn);
 
 function getMissingDocs($fileId, $conn)
 {
-    $allMissedDocs = array();
 
     $row = selectRecord("files", "file_id", $fileId, $conn);
     if ($row){
         $row["service"] = selectRecord("services", "id", $row["service_id"], $conn);
         $steps = json_decode("[".$row["service"]["steps"]."]");
         foreach ($steps as $step){
-            $allMissedDocs = checkDocs($fileId,$step,$conn);
+            $docsList[] = checkDocs($fileId,$step,$conn);
         }
+
+        $allDocs = [];
+
+        foreach ($docsList as $docItemList){
+            foreach ($docItemList as $item){
+               $allDocs[] = $item;
+            }
+        }
+
+        $arr = array_unique($allDocs);
+        $allMissedUniqDocs = array_values($arr);
+        $missedDocs = [];
+
+        foreach ($allMissedUniqDocs as $doc) {
+            $missedDocs[] =  selectRecord("clearance_docs", "id", $doc, $conn);
+        }
+
 
     }
 
-    return $allMissedDocs;
+    return $missedDocs;
 }
 
 
@@ -51,16 +67,10 @@ function checkDocs($fileId,$stepId,$conn){
     }
     foreach ($docs as $doc) {
         if (!in_array($doc,$currentDocsIds)){
-            $missedDocs[] = selectRecord("clearance_docs", "id", $doc, $conn);
+//            $missedDocs[] =  selectRecord("clearance_docs", "id", $doc, $conn)["id"];
+            $missedDocs[] =  $doc;
         }
     }
-//    if (count($missedDocs) == 0){
-//        $res["done"] = false;
-//        $res['msg'] = $missedDocs;
-//    }else{
-//        $res["done"] = true;
-//        $res["missed"] = $missedDocs;
-//    }
 
     return $missedDocs;
 }
