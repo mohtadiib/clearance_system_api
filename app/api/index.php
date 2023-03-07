@@ -17,21 +17,27 @@ if(isset($postdata) && !empty($postdata))
      $id_1 = $request["id"];
      $row = innerSelectDeep("$table","$field_1","$id_1",
          "","","","", $conn);
+ }else{
+     $field_1 = "";
+     $id_1 = "";
  }
  if (isset($request["table2"]) ){
-     $field_1 = $request["field1"];
-     $id_1 = $request["id"];
+//     $field_1 = $request["field1"];
+//     $id_1 = $request["id"];
      $table2 = $request["table2"];
      $field2 = $request["field2"];
      $row = innerSelectDeep("$table","$field_1","$id_1",
          "$table2","$field2","","", $conn);
 //     $row = [];
+ }else{
+     $table2 = "";
+     $field2 = "";
  }
  if (isset($request["table3"]) ){
-     $field_1 = $request["field1"];
-     $id_1 = $request["id"];
-     $table2 = $request["table2"];
-     $field2 = $request["field2"];
+//     $field_1 = $request["field1"];
+//     $id_1 = $request["id"];
+//     $table2 = $request["table2"];
+//     $field2 = $request["field2"];
      $table3 = $request["table3"];
      $field3 = $request["field3"];
      $row = innerSelectDeep("$table","$field_1","$id_1",

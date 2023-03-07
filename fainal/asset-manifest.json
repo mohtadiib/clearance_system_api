@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "static/css/main.7d7d7234.css",
+    "main.js": "static/js/main.206cc3b7.js",
+    "static/media/shipping.jpeg": "static/media/shipping.299a29a7191b16887331.jpeg",
+    "static/media/shamel-book.ttf": "static/media/shamel-book.77f802c20252a3289188.ttf",
+    "static/media/shipping-logo.png": "http://localhost/clearance/fainal/static/media/shipping-logo.e72513bdfc7427392bf8.png",
+    "index.html": "index.html",
+    "main.7d7d7234.css.map": "static/css/main.7d7d7234.css.map",
+    "main.206cc3b7.js.map": "static/js/main.206cc3b7.js.map"
+  },
+  "entrypoints": [ 
+    "static/css/main.7d7d7234.css",
+    "static/js/main.206cc3b7.js"
+  ]
+}
