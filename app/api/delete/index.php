@@ -20,6 +20,6 @@ if($result){
 }else{
     $res['msg'] = 'Error , Didn\'t receive data ..';
 }
-echo json_encode($result);
+echo json_encode($res);
 mysqli_close($conn);
 ?>

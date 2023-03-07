@@ -1,15 +1,15 @@
 <?php
 require 'header.php';
 
-//$servername = "localhost";
-//$username = "root";
-//$password = "root1234";
-//$dbname = "clearance";
-
 $servername = "localhost";
-$username = "smasemoc_cca";
-$password = "w4icYEP}.Ezx";
-$dbname = "smasemoc_cca";
+$username = "root";
+$password = "root1234";
+$dbname = "clearance";
+
+//$servername = "localhost";
+//$username = "smasemoc_cca";
+//$password = "w4icYEP}.Ezx";
+//$dbname = "smasemoc_cca";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
