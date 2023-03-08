@@ -9,10 +9,14 @@ foreach ($rows as $row){
         $step = selectRecord("clearance_steps", "id", $row["current_step"], $conn);
         $row["current_step"] = $step["name"];
     }else{
-        $service = selectRecord("services", "id", $row["service_id"], $conn);
-        $steps = json_decode("[".$service["steps"]."]");
-        $step = selectRecord("clearance_steps", "id", $steps[0], $conn);
-        $row["current_step"] = $step["name"];
+        if ($row["service_id"]){
+            $service = selectRecord("services", "id", $row["service_id"], $conn);
+            $steps = json_decode("[".$service["steps"]."]");
+            $step = selectRecord("clearance_steps", "id", $steps[0], $conn);
+            $row["current_step"] = $step["name"];
+        }else{
+            $row["current_step"] = "لم يحدد";
+        }
     }
     $rowsFinal[] = $row;
 }
