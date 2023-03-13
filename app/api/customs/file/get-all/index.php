@@ -17,6 +17,12 @@ foreach ($rows as $row){
         }else{
             $row["current_step"] = "لم يحدد";
         }
+        if ($row["supplier_id"]){
+            $supplier = selectRecord("suppliers", "id", $row["supplier_id"], $conn);
+            $row["supplier_name"] = $supplier["name"];
+        }else{
+            $row["supplier_name"] = "لم يحدد";
+        }
     }
     $rowsFinal[] = $row;
 }
