@@ -236,7 +236,7 @@ function selectRecord($table, $field, $value, $conn){
     return mysqli_fetch_assoc($result);
 }
 
-function selectArrayRecord($table, $field, $value, $conn): array
+function selectArrayRecord($table, $field, $value, $conn)
 {
     $sql = "SELECT * FROM $table WHERE $field = $value ORDER BY id DESC";
     return query_result($sql, $conn);
